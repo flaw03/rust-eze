@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include "GestionCapteurs.h"
 
 GestionCapteurs::GestionCapteurs(int* pins, int nbCapteurs, int delayTime) {
@@ -113,24 +114,24 @@ void GestionCapteurs::displayDetails() {
     }
 }
 
-void displaySensorDetailsColor(){
-  for (int i = 0; i < nbCapteurs; i++) {
-    Serial.print("Sensor ");
-    Serial.print(i + 1);
-    Serial.print(": Value :");
-    Serial.print(responseTimes[i]);
-    Serial.print("| Min: ");
-    Serial.print(minValues[i]);
-    Serial.print(" | Max: ");
-    Serial.print(maxValues[i]);
-    Serial.print(" | Threshold: ");
-    Serial.print(thresholds[i]);
-    Serial.print(" | Color: ");
-    if (isWhite(i)){
-      Serial.print("White");
-    }else{
-      Serial.print("Black");
-    }
+void GestionCapteurs::displaySensorDetailsColor(){
+    for (int i = 0; i <nbCapteurs; i++) {
+        Serial.print("Sensor ");
+        Serial.print(i + 1);
+        Serial.print(": Value :");
+        Serial.print(responseTimes[i]);
+        Serial.print("| Min: ");
+        Serial.print(minValues[i]);
+        Serial.print(" | Max: ");
+        Serial.print(maxValues[i]);
+        Serial.print(" | Threshold: ");
+        Serial.print(thresholds[i]);
+        Serial.print(" | Color: ");
+        if (isWhite(i)){
+            Serial.print("White");
+        }else{
+            Serial.print("Black");
+        }
     Serial.println();
   }
 }
